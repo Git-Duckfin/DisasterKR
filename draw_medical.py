@@ -13,11 +13,15 @@ def add_trace_to_fig(fig, df, col_name):
 def setup_figure_layout(fig, title):
     fig.update_layout(
         title=title,
-        xaxis=dict(title='date', tickformat='%y%m%d', autorange=True),
+        xaxis=dict(title='date', autorange=True),
         yaxis=dict(title='Value', autorange=True),
-        autosize=False,
-        width=1800,  # 그래프의 너비 설정
-        height=900  # 그래프의 높이 설정
+        legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    )
     )
 
 ##############################################################################################################
@@ -44,7 +48,7 @@ exclude_cols = [5, 6]  # Python은 0부터 인덱싱을 시작하므로, 5번째
 ##############################################################################################################
 
 # 파일 경로
-file_path = 'election\src\의료-집계-통합.xlsx'
+file_path = 'src\의료-집계-통합.xlsx'
 
 # 데이터 로드 및 날짜 변환
 df = load_and_convert_date(file_path, exclude_cols)
@@ -60,6 +64,17 @@ for column in df.columns[1:]:
 # 그래프 설정
 setup_figure_layout(fig, "Medical Data")
 
+# 그래프 레이아웃 설정
+fig.update_layout(
+    legend=dict(
+        orientation="h",
+        yanchor="bottom",
+        y=1.02,
+        xanchor="right",
+        x=1
+    )
+)
+
 # HTML 파일로 저장
-output_path = 'election\out\medical_data.html'
+output_path = 'out\medical_data.html'
 fig.write_html(output_path)
