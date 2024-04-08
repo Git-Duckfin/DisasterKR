@@ -32,9 +32,9 @@ def main():
     if not html_file_path:
         return
 
-    # Create and save the chart
-    fig = create_event_media_coverage_chart(df, title='Medical Data Chart')
+    # Create and save the chart``
+    fig = create_event_media_coverage_chart(df, title='Disaster Data')
     fig.write_html(html_file_path, include_plotlyjs='cdn', full_html=False)
 
-if __name__ == '__main__':
+if __name__ == '__main__':  
     main()
