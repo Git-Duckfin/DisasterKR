@@ -23,7 +23,7 @@ def setup_figure_layout(fig, title):
 file_paths = [
 ]
 
-common_dir = 'election\src\common'
+common_dir = 'src\common'
 for file_name in os.listdir(common_dir):
     if file_name.startswith('선거일-') and file_name.endswith('.xlsx'):
         file_paths.append(os.path.join(common_dir, file_name))
@@ -43,4 +43,4 @@ for df, name, color in zip(dfs, trace_names, trace_colors):
 setup_figure_layout(fig, "All Data")
 
 # HTML 파일로 저장
-fig.write_html('election\out\integrated_graph.html')
+fig.write_html('out\integrated_graph.html')
