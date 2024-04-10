@@ -35,5 +35,5 @@ fig.update_layout(
 )
 
 # Save the figure
-html_file_path = 'out\event_media_graph.html'
+html_file_path = 'out\html\event_media_graph.html'
 fig.write_html(html_file_path)

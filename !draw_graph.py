@@ -28,12 +28,12 @@ def main():
     df['date'] = pd.to_datetime(df['date'], format='%Y%m%d')
 
     # Select HTML file path
-    html_file_path = save_file('Save HTML File', 'out/', [('HTML Files', '*.html')])
+    html_file_path = save_file('Save HTML File', 'out/html/', [('HTML Files', '*.html')])
     if not html_file_path:
         return
 
     # Create and save the chart``
-    fig = create_event_media_coverage_chart(df, title='Disaster Data')
+    fig = create_event_media_coverage_chart(df, title='Election Denial Data')
     fig.write_html(html_file_path, include_plotlyjs='cdn', full_html=False)
 
 if __name__ == '__main__':  
