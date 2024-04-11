@@ -1,20 +1,30 @@
-import pandas as pd
+import os, sys
 import plotly.graph_objects as go
+import pandas as pd
 
-def load_and_convert_date(file_path):
-    df = pd.read_excel(file_path)
-    df['date'] = pd.to_datetime(df['date'], format='%Y%m%d')
-    return df
+def create_event_media_coverage_chart(event_media_df, file_path):
+    """
+    Given a DataFrame and a file path, creates a Plotly chart.
 
-def create_event_media_coverage_chart(event_media_df, title):
-    # 그래프 생성
+    Args:
+        event_media_df (pd.DataFrame): DataFrame containing the data for the chart.
+        file_path (str): The file path of the input file, used to extract the title for the chart.
+
+    Returns:
+        plotly.graph_objs._figure.Figure: The Plotly figure object for the chart.
+    """
+
+    # Extract title from file path
+    title = os.path.basename(file_path).split('.')[0]
+
+    # Create the Plotly chart
     fig = go.Figure()
-    # "사건-언론" 파일의 각 이벤트에 대한 열
-    event_columns = event_media_df.columns[1:]  # Excluding the date column
-    # 각 이벤트에 대한 트레이스 추가
-    for col in event_columns:
+    
+    # Assuming your DataFrame has a 'date' column and other columns for data
+    for col in event_media_df.columns[1:]:  # Skipping the 'date' column
         fig.add_trace(go.Scatter(x=event_media_df['date'], y=event_media_df[col], mode='lines', name=col))
-    # 그래프 레이아웃 설정
+
+    # Update layout
     fig.update_layout(
         title=title,
         xaxis=dict(title='date'),
@@ -29,10 +39,14 @@ def create_event_media_coverage_chart(event_media_df, title):
     )
     return fig
 
-# "사건-언론" 파일을 로드하고 처리합니다.
-event_media_file_path = 'src\chart-disaster\!사건-언론.xlsx'
-event_media_df = load_and_convert_date(event_media_file_path)
+# if len(sys.argv) > 1:
+#     title_name = sys.argv[1]
+# else:
+#     # breakpoint()
+#     title_name = "Select File"  # Default title
 
-# 그래프 생성
-title = "Event Media Coverage"
-fig = create_event_media_coverage_chart(event_media_df, title)
+# initialdir='src/!integrated'
+# event_media_file_path = os.path.join(initialdir, title_name+'.xlsx')
+
+# event_media_df = load_and_convert_date(event_media_file_path)  # Move this line above the next line
+# fig = create_event_media_coverage_chart(event_media_df, sys.argv[1])
