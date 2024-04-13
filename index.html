@@ -36,7 +36,19 @@
     </style>
   </head>
   <body>
-    <div class="tab">
+    <div class="tab" id="election-result">
+      <button class="tablinks" onclick="openTab(event, 'Age_Heatmap')">
+        Heatmap by Age
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Graph_Age')">
+        Line Graph by Age
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Graph_Gender')">
+        Line Graph by Gender
+      </button>
+    </div>
+
+    <div class="tab" id="election_data">
       <button class="tablinks" onclick="openTab(event, 'Election')">
         Election Data
       </button>
@@ -57,26 +69,31 @@
       </button>
     </div>
 
+    <div id="Age_Heatmap" class="tabcontent">
+      <iframe src="out/election-result/voting_rate_heatmap.html"></iframe>
+    </div>
+    <div id="Graph_Age" class="tabcontent">
+      <iframe src="out/election-result/voting_rate_by_age.html"></iframe>
+    </div>
+    <div id="Graph_Gender" class="tabcontent">
+      <iframe src="out/election-result/voting_rate_by_gender.html"></iframe>
+    </div>
+
     <div id="Election" class="tabcontent">
       <iframe src="out/html/election_data.html"></iframe>
     </div>
-
     <div id="Issued" class="tabcontent">
       <iframe src="out/html/issued_data.html"></iframe>
     </div>
-
     <div id="Disaster" class="tabcontent">
       <iframe src="out/html/disaster_data.html"></iframe>
     </div>
-
     <div id="Denial" class="tabcontent">
       <iframe src="out/html/denial_data.html"></iframe>
     </div>
-
     <div id="Medical" class="tabcontent">
       <iframe src="out/html/medical_data.html"></iframe>
     </div>
-
     <div id="Missile" class="tabcontent">
       <iframe src="out/html/missile_data.html"></iframe>
     </div>

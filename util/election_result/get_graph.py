@@ -28,7 +28,7 @@ def plot_gender_voting(data):
                       legend_title='Gender', xaxis_title='Year', yaxis_title='Voting Rate (%)',
                       showlegend=True, xaxis=dict(fixedrange=True), yaxis=dict(fixedrange=True))
     # 주석 추가, 제목 우측에 위치
-    fig.add_annotation(text=comments[0], xref="paper", yref="paper", x=1, y=1.08, showarrow=False, align="left", font=dict(size=14))
+    fig.add_annotation(text=comments[0], xref="paper", yref="paper", x=1, y=1.10, showarrow=False, align="left", font=dict(size=14))
     fig.add_annotation(text=comments[1], xref="paper", yref="paper", x=1, y=1.05, showarrow=False, align="left", font=dict(size=14))
     return fig
 
@@ -45,7 +45,7 @@ def plot_age_group_voting(data):
                       xaxis_title='Year', yaxis_title='Voting Rate (%)',
                       legend_title='Age Groups', xaxis=dict(fixedrange=True), yaxis=dict(fixedrange=True))
     # 주석 추가, 제목 우측에 위치
-    fig.add_annotation(text=comments[0], xref="paper", yref="paper", x=1, y=1.08, showarrow=False, align="left", font=dict(size=14))
+    fig.add_annotation(text=comments[0], xref="paper", yref="paper", x=1, y=1.10, showarrow=False, align="left", font=dict(size=14))
     fig.add_annotation(text=comments[1], xref="paper", yref="paper", x=1, y=1.05, showarrow=False, align="left", font=dict(size=14))
     return fig
 
@@ -61,7 +61,7 @@ def create_heatmap(data):
                     x=years, y=age_groups, aspect="auto", title="Heatmap of Voting Rate by Age Group")
     fig.update_xaxes(side="bottom")
     # 주석 추가, 제목 우측에 위치
-    fig.add_annotation(text=comments[0], xref="paper", yref="paper", x=1, y=1.08, showarrow=False, align="left", font=dict(size=14))
+    fig.add_annotation(text=comments[0], xref="paper", yref="paper", x=1, y=1.10, showarrow=False, align="left", font=dict(size=14))
     fig.add_annotation(text=comments[1], xref="paper", yref="paper", x=1, y=1.05, showarrow=False, align="left", font=dict(size=14))
     # fig.add_annotation(text=single_comment, xref="paper", yref="paper", x=1.1, y=1.05, showarrow=False, align="left", font=dict(size=10))
     return fig
